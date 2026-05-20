@@ -100,7 +100,7 @@ notify_complete() {
 }
 
 delete_files() {
-  local -i win_length=120
+  local -i win_length=200
   local -i win_height=12
   local -i exit_code=0
   local -i step=$(( 100000 / ${NUM_FILES} )) # Per 100,000. Convert later
