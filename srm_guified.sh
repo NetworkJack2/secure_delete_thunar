@@ -130,8 +130,8 @@ delete_files() {
       sleep ${fin_wait}
     ) |
     #Xdialog --icon ${ICON} --title "Secure Delete" --gauge "Wiping ${NUM_FILES} file(s)" ${win_height} ${win_length}
-    yad --progress --window-icon=${ICON} --image=${ICON} --title "Secure Delete" --text "Wiping ${NUM_FILES} file(s)" --button=yad-cancel --auto-close --height=${win_height} --width=${win_length}
-    [ $? -eq 255 ] && exit_with_error 4 "Secure Wipe Aborted" #TODO get error code for yad-canel butt
+    yad --progress --window-icon=${ICON} --image=${ICON} --title "Secure Delete" --text "Wiping ${NUM_FILES} file(s)" --button="yad-cancel:255" --auto-close --height=${win_height} --width=${win_length}
+    [ $? -eq 255 ] && exit_with_error 4 "Secure Wipe Aborted"
     ;;
   esac
   return ${exit_code}
