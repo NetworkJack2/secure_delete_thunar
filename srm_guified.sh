@@ -17,7 +17,7 @@
 SRM_PROG=shred
 SRM_OPTS="--remove=wipesync -f -n2"
 
-DEP_LIST="find shred Xdialog notify-send"
+DEP_LIST="find shred yad notify-send"
 CONFIRM="N"
 ICON="shred"
 
