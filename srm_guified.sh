@@ -26,7 +26,8 @@ exit_with_error(){
   local -i win_height=8
   echo 1>&2 "srm_guified.sh: ERROR: ${2}"
   notify-send --icon ${ICON} "Secure Delete: ERROR!" "${2} (${1})"
-  Xdialog --icon ${ICON} --title "Secure Delete" --msgbox "${2} (${1})" ${win_height} ${win_length}
+  #Xdialog --icon ${ICON} --title "Secure Delete" --msgbox "${2} (${1})" ${win_height} ${win_length}
+  yad --window-icon "shred" --title "Secure Delete" --text "${2} (${1})" --button="yad-ok" --height=${win_height} --width=${win_length}
   exit ${1}
 }
 
@@ -66,7 +67,8 @@ confirm_delete() {
      exit_with_error 2 "No Files to Delete, exiting"
      ;;
    *)
-    Xdialog --icon ${ICON} --title "Secure Delete" --yesno "Really Wipe ${NUM_FILES} File(s)?" ${win_height} ${win_length}
+    #Xdialog --icon ${ICON} --title "Secure Delete" --yesno "Really Wipe ${NUM_FILES} File(s)?" ${win_height} ${win_length}
+    yad --window-icon "shred" --title "Secure Delete" --text "Really Wipe ${NUM_FILES} File(s)?" --button="yad-yes:0" --button="yad-no:1" --height=${win_height} --width=${win_length}
     exit_code=${?}
     ;;
   esac
