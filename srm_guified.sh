@@ -100,8 +100,8 @@ notify_complete() {
 }
 
 delete_files() {
-  local -i win_length=90
-  local -i win_height=8
+  local -i win_length=120
+  local -i win_height=12
   local -i exit_code=0
   local -i step=$(( 100000 / ${NUM_FILES} )) # Per 100,000. Convert later
   local -i counter=0
@@ -130,7 +130,7 @@ delete_files() {
       sleep ${fin_wait}
     ) |
     #Xdialog --icon ${ICON} --title "Secure Delete" --gauge "Wiping ${NUM_FILES} file(s)" ${win_height} ${win_length}
-    yad --progress --window-icon=${ICON} --image=${ICON} --title "Secure Delete" --text "Wiping ${NUM_FILES} file(s)" --button=yad-cancel --auto-kill --height=${win_height} --width=${win_length}
+    yad --progress --window-icon=${ICON} --image=${ICON} --title "Secure Delete" --text "Wiping ${NUM_FILES} file(s)" --button=yad-cancel --auto-close --height=${win_height} --width=${win_length}
     [ $? -eq 255 ] && exit_with_error 4 "Secure Wipe Aborted" #TODO get error code for yad-canel butt
     ;;
   esac
