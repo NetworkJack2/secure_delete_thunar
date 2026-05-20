@@ -22,12 +22,12 @@ CONFIRM="N"
 ICON="shred"
 
 exit_with_error(){
-  local -i win_length=45
+  local -i 
   local -i win_height=8
   echo 1>&2 "srm_guified.sh: ERROR: ${2}"
   notify-send --icon ${ICON} "Secure Delete: ERROR!" "${2} (${1})"
   #Xdialog --icon ${ICON} --title "Secure Delete" --msgbox "${2} (${1})" ${win_height} ${win_length}
-  yad --window-icon "shred" --title "Secure Delete" --text "${2} (${1})" --button="yad-ok" --height=${win_height} --width=${win_length}
+  yad --error --window-icon "shred" --image="error" --title "Secure Delete" --text "${2} (${1})" --button="yad-ok" --height=${win_height} --width=${win_length}
   exit ${1}
 }
 
@@ -68,7 +68,7 @@ confirm_delete() {
      ;;
    *)
     #Xdialog --icon ${ICON} --title "Secure Delete" --yesno "Really Wipe ${NUM_FILES} File(s)?" ${win_height} ${win_length}
-    yad --window-icon "shred" --title "Secure Delete" --text "Really Wipe ${NUM_FILES} File(s)?" --button="yad-yes:0" --button="yad-no:1" --height=${win_height} --width=${win_length}
+    yad --window-icon "shred" --image="shred" --title "Secure Delete" --text "Really Wipe ${NUM_FILES} File(s)?" --button="yad-yes:0" --button="yad-no:1" --height=${win_height} --width=${win_length}
     exit_code=${?}
     ;;
   esac
@@ -129,8 +129,9 @@ delete_files() {
       done
       sleep ${fin_wait}
     ) |
-    Xdialog --icon ${ICON} --title "Secure Delete" --gauge "Wiping ${NUM_FILES} file(s)" ${win_height} ${win_length}
-    [ $? -eq 255 ] && exit_with_error 4 "Secure Wipe Aborted"
+    #Xdialog --icon ${ICON} --title "Secure Delete" --gauge "Wiping ${NUM_FILES} file(s)" ${win_height} ${win_length}
+    yad --progress -window-icon "shred" --image="shred" --title "Secure Delete" --test "Wiping ${NUM_FILES} file(s)" --button=yad-cancel --auto-kill --height=${win_height} --width=${win_length}
+    [ $? -eq 255 ] && exit_with_error 4 "Secure Wipe Aborted" #TODO get error code for yad-cancel button. 225 is from Xdialog
     ;;
   esac
   return ${exit_code}
