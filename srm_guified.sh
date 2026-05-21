@@ -22,8 +22,8 @@ CONFIRM="N"
 ICON="shred"
 
 exit_with_error(){
-  local -i win_length=45
-  local -i win_height=8
+  local -i win_length=300
+  local -i win_height=12
   echo 1>&2 "srm_guified.sh: ERROR: ${2}"
   notify-send --icon ${ICON} "Secure Delete: ERROR!" "${2} (${1})"
   #Xdialog --icon ${ICON} --title "Secure Delete" --msgbox "${2} (${1})" ${win_height} ${win_length}
