@@ -26,7 +26,7 @@ ICON="shred"
 
 exit_with_error(){
   local -i win_length=300
-  local -i win_height=12
+  local -i win_height=8
   echo 1>&2 "srm_guified.sh: ERROR: ${2}"
   notify-send --icon ${ICON} "Secure Delete: ERROR!" "${2} (${1})"
   #Xdialog --icon ${ICON} --title "Secure Delete" --msgbox "${2} (${1})" ${win_height} ${win_length}
@@ -62,7 +62,7 @@ check_deps(){
 confirm_delete() {
   # Ask user confirmation before irrecovably wiping files. Probably most
   # important, if not sole reason for this script.
-  local -i win_length=45
+  local -i win_length=300
   local -i win_height=8
   local -i exit_code=0
   case ${NUM_FILES} in
@@ -87,7 +87,7 @@ confirm_delete() {
 
 notify_complete() {
   # libnotify end results
-  local -i win_length=45
+  local -i win_length=300
   local -i win_height=8
   local -i complete_files=$((${NUM_FILES} - ${FILE_FAILS}))
   case ${FILE_FAILS} in
@@ -103,8 +103,8 @@ notify_complete() {
 }
 
 delete_files() {
-  local -i win_length=200
-  local -i win_height=12
+  local -i win_length=300
+  local -i win_height=8
   local -i exit_code=0
   local -i step=$(( 100000 / ${NUM_FILES} )) # Per 100,000. Convert later
   local -i counter=0
