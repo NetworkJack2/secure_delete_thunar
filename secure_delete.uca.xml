@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <actions>
   <action>
+    <icon></icon>
+    <name>-------</name>
+    <submenu></submenu>
+    <unique-id>1779327888539296-1</unique-id>
+    <command>/bin/true</command>
+    <description>Spacer</description>
+    <range></range>
+    <patterns>*</patterns>
+    <directories/>
+    <audio-files/>
+    <image-files/>
+    <other-files/>
+    <text-files/>
+    <video-files/>
+  </action>
+  <action>
     <icon>shred</icon>
     <name>Secure Delete</name>
     <name xml:lang="en">Secure Delete</name>
@@ -14,7 +30,7 @@
     <name xml:lang="ru">Безопасное удаление</name>
     <name xml:lang="ko">보안 삭제</name>
     <unique-id>1451484670887515-4</unique-id>
-    <command>/usr/share/secure_delete_thunar/srm_guified.sh %F</command>
+    <command>/usr/share/thunar_srm/srm_guified.sh %F</command>
     <description>Securely Wipe Files Before Deletion</description>
     <description xml:lang="en">Securely Wipe Files Before Deletion</description>
     <description xml:lang="zh">在删除之前安全地擦除文件</description>
@@ -25,6 +41,22 @@
     <description xml:lang="fr">Nettoyer en toute sécurité les fichiers avant leur suppression</description>
     <description xml:lang="ru">Безопасное удаление файлов перед удалением</description>
     <description xml:lang="ko">삭제 전 파일을 안전하게 지우기</description>
+    <patterns>*</patterns>
+    <directories/>
+    <audio-files/>
+    <image-files/>
+    <other-files/>
+    <text-files/>
+    <video-files/>
+  </action>
+  <action>
+    <icon></icon>
+    <name>-------</name>
+    <submenu></submenu>
+    <unique-id>1779327931377400-2</unique-id>
+    <command>/bin/true</command>
+    <description>Spacer</description>
+    <range></range>
     <patterns>*</patterns>
     <directories/>
     <audio-files/>
