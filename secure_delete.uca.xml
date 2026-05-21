@@ -14,7 +14,7 @@
     <name xml:lang="ru">Безопасное удаление</name>
     <name xml:lang="ko">보안 삭제</name>
     <unique-id>1451484670887515-4</unique-id>
-    <command>/usr/share/secure_delete_thunar/srm_guified.sh %F</command>
+    <command>/usr/share/thunar_srm/srm_guified.sh %F</command>
     <description>Securely Wipe Files Before Deletion</description>
     <description xml:lang="en">Securely Wipe Files Before Deletion</description>
     <description xml:lang="zh">在删除之前安全地擦除文件</description>
