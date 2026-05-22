@@ -1,5 +1,5 @@
 # Secure Delete Thunar
-This bash script uses xdialog and libnotify to gui-fy srm for use in thunar's
+This bash script uses yad and libnotify to gui-fy srm for use in thunar's
 right click menu.
 
 You can add this in thunar by editing actions in the menu. use the action as
